@@ -45,7 +45,7 @@ export default mergeConfig(
 
 ## Métodos comuns nos testes
 
-* `describe`: função que aceita nome e função e é utilizada para agrupar testes relacionados
+* `describe`: Função que aceita nome e função e é utilizada para agrupar testes relacionados
 
 * `test` \ `it`: Utilizada para representar o atual bloco que será testado
 
