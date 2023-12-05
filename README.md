@@ -1,41 +1,52 @@
-# vitest-learning
+# Vitest Learning
 
-This template should help get you started developing with Vue 3 in Vite.
+Vitest é um framework moderno alimentado pelo Vite. Tem uma sintaxe similar ao jest e vem equipado com ESM.
 
-## Recommended IDE Setup
+## Por que Vitest?
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+Utilizando framewoks como o Jest para testar aplicações alimentadas pelo o Vite levou a muitas duplicações de configurações entre o Jest e Vite. Vitest remove a necessidade de configurações extras para escrever testes unitários. 
 
-## Customize configuration
+## Escrevendo o primeiro teste unitário
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+### Cria a aplicação
 
-## Project Setup
-
-```sh
-npm install
+```bash
+$ npm create vue <projeto_nome>
 ```
 
-### Compile and Hot-Reload for Development
+### Configura o Vitest
 
-```sh
-npm run dev
+```jsx
+// vitest.config.js
+import { fileURLToPath } from 'node:url';
+import { mergeConfig } from 'vite';
+import { configDefaults, defineConfig } from 'vitest/config';
+import viteConfig from './vite.config';
+
+export default mergeConfig(
+  viteConfig,
+  defineConfig({
+    test: {
+      environment: 'jsdom',
+      exclude: [...configDefaults.exclude, 'e2e/*'],
+      root: fileURLToPath(new URL('./', import.meta.url))
+    }
+  });
+);
 ```
 
-### Compile and Minify for Production
-
-```sh
-npm run build
+```json
+"scripts": {
+	"test:unit": "vitest",
+}
 ```
 
-### Run Unit Tests with [Vitest](https://vitest.dev/)
+## O que iremos testar
 
-```sh
-npm run test:unit
-```
+## Métodos comuns nos testes
 
-### Lint with [ESLint](https://eslint.org/)
+* `describe`: função que aceita nome e função e é utilizada para agrupar testes relacionados
 
-```sh
-npm run lint
-```
+* `test` \ `it`: Utilizada para representar o atual bloco que será testado
+
+* `expect`: Função que irá testar os valores ou criar afirmações
