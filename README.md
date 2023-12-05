@@ -43,6 +43,9 @@ export default mergeConfig(
 
 ## O que iremos testar
 
+Para testar os componentes devemos nos perguntar o que o componente deverá fazer
+de acordo com a reação X ou Y
+
 ## Métodos comuns nos testes
 
 * `describe`: Função que aceita nome e função e é utilizada para agrupar testes relacionados
