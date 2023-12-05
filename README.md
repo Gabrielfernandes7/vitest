@@ -50,3 +50,8 @@ export default mergeConfig(
 * `test` \ `it`: Utilizada para representar o atual bloco que será testado
 
 * `expect`: Função que irá testar os valores ou criar afirmações
+
+
+## Referências
+
+[Vitest Blog Vue Mastery](https://www.vuemastery.com/blog/getting-started-with-vitest)
